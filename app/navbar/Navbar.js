@@ -5,7 +5,7 @@ import Image from "next/image";
 import lineImg from "../../public/yellowLine1.svg";
 import schoolLogo from "../../public/schoolLogo.png";
 import { IoIosArrowForward } from "react-icons/io";
-import "./Navbar.css";
+import "./NavBar.css";
 import optionsIcon from "../../public/Button-Open-Menu.png";
 import menuIcon from "../../public/menu-text.png";
 import menuCloseIcon from "../../public/menu-close-text.png";
