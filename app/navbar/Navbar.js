@@ -197,7 +197,7 @@ const Navbar = () => {
   const renderNestedLinks = (nestedLinks) => (
     <div className="dropdown">
       {nestedLinks.map((nestedItem, nestedIndex) => (
-        <div className="list-item" key={nestedIndex}>
+        <div className="list-items" key={nestedIndex}>
           <a href={nestedItem?.linkTo} style={{ color: "#fff" }} passHref>
             <div className="title-arrow">
               <p className="nested-link-title">{nestedItem?.title}</p>

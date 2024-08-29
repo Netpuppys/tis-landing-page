@@ -269,7 +269,7 @@
   justify-self: center;
 }
 
-.navbar-main-div-global .dropdown-container .dropdown .list-item {
+.navbar-main-div-global .dropdown-container .dropdown .list-items {
   box-sizing: border-box;
   margin: none;
   padding: none;
@@ -280,12 +280,12 @@
   position: relative;
 }
 
-.dropdown .list-item:hover {
+.dropdown .list-items:hover {
   background-color: #b90124;
   color: #fff;
 }
 
-.navbar-main-div-global .dropdown-container .dropdown .list-item .link {
+.navbar-main-div-global .dropdown-container .dropdown .list-items .link {
   width: fit-content;
   height: 100%;
   cursor: pointer;
@@ -307,7 +307,7 @@
 .navbar-main-div-global
   .dropdown-container
   .dropdown
-  .list-item
+  .list-items
   .link
   .nested-link-title {
   padding: 0;
@@ -351,7 +351,7 @@
 .navbar-main-div-global
 .dropdown-container
 .dropdown
-.list-item:hover .link
+.list-items:hover .link
 .nested-link-title{
   color: #b90124;
 } */
@@ -359,7 +359,7 @@
 .navbar-main-div-global
   .dropdown-container
   .dropdown
-  .list-item:hover
+  .list-items:hover
   .super-nested-links {
   display: block;
 }
@@ -367,7 +367,7 @@
 .navbar-main-div-global
   .dropdown-container
   .dropdown
-  .list-item
+  .list-items
   .super-nested-links {
   display: none;
   position: absolute;
@@ -442,7 +442,7 @@
   .navbar-main-div-global
     .dropdown-container
     .dropdown
-    .list-item
+    .list-items
     .link
     .nested-link-title {
     font-size: 0.8rem;
@@ -454,7 +454,7 @@
     font-weight: 100;
     font-size: 0.8rem;
   }
-  .navbar-main-div-global .dropdown-container .dropdown .list-item {
+  .navbar-main-div-global .dropdown-container .dropdown .list-items {
     padding: 0.5rem 0.8rem;
   }
 }
@@ -469,7 +469,7 @@
   .navbar-main-div-global
     .dropdown-container
     .dropdown
-    .list-item
+    .list-items
     .link
     .nested-link-title {
     font-size: 0.6rem;
@@ -478,7 +478,7 @@
     font-weight: 100;
     font-size: 0.6rem;
   }
-  .navbar-main-div-global .dropdown-container .dropdown .list-item {
+  .navbar-main-div-global .dropdown-container .dropdown .list-items {
     padding: 0.3rem 0.5rem;
   }
 }
