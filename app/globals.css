@@ -1,33 +1,81 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+@font-face {
+  font-family: "URW Din Arabic";
+  src: url(./fonts/FontsFree-Net-URW-DIN-Arabic-1.ttf);
+}
+@font-face {
+  font-family: "darwin-pro";
+  src: url(./fonts/Los\ Andes\ Type\ \ Darwin\ Pro\ Light.otf);
+}
+@font-face {
+  font-family: "Miltonian";
+  src: url(./fonts/Miltonian-Regular.ttf);
+}
+@font-face {
+  font-family: "Mirador100";
+  src: url(./fonts/Mirador-Medium.ttf);
+}
+@font-face {
+  font-family: "PF din Display100";
+  src: url(./fonts/PFDinDisplayPro-ExtraThin.ttf);
+}
+@font-face {
+  font-family: "PF din Display";
+  src: url(./fonts/PFDinDisplayPro-Regular.woff);
+}
+@font-face {
+  font-family: "PF DIN";
+  src: url(./fonts/PFDINSerif-Bold.otf);
+}
+@font-face {
+  font-family: "Mirador";
+  src: url(./fonts/Rene\ Bieder\ -\ Mirador\ Bold\ DEMO.otf);
+}
+@font-face {
+  font-family: "TT Chocolates";
+  src: url(./fonts/TT\ Chocolates\ Trial\ Regular.otf);
+}
+@font-face {
+  font-family: "Zurdo W01 Regular";
+  src: url(./fonts/Zurdo\ W01\ Regular.ttf);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+body::-webkit-scrollbar {
+  width: 8px;
+  --tw-bg-opacity: 1;
+  background-color: #b90124;
+  /* width of the entire scrollbar */
 }
-
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  margin: 0px;
+  font-family: PF din Display100;
+  text-align: justify;
 }
-
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+body::-webkit-scrollbar-thumb {
+  background-color: #fff; /* color of the scroll thumb */
+  border-radius: 10px; /* roundness of the scroll thumb */
+  /* creates padding around scroll thumb */
+}
+.miltonian-regular {
+  font-family: "Miltonian", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+a {
+  text-decoration: none;
+}
+p {
+  margin-block-start: 0rem;
+  margin-block-end: 0rem;
+}
+@media (max-width: 768px) {
+  body::-webkit-scrollbar-thumb {
+    display: none;
+  }
+  body::-webkit-scrollbar {
+    width: 0px;
+    display: none;
   }
 }
