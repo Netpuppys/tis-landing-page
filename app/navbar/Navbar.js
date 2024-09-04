@@ -11,21 +11,17 @@ import menuIcon from "../../public/menu-text.png";
 import menuCloseIcon from "../../public/menu-close-text.png";
 import NavMenu from "../navMenu/NavMenu";
 import { FaWhatsapp } from "react-icons/fa";
-import Form from "../globalComponents/Form";
+
 import { FaPhone } from "react-icons/fa6";
 import { useMobile } from "../globalComponents/IsMobileContext";
 
 const Navbar = () => {
   const [activeMenu, setActiveMenu] = useState(null);
   const [isNavMenuVisible, setIsNavMenuVisible] = useState(false);
-  const [showAdmissionForm, setShowAdmissionForm] = useState(false);
+
   const isMobile = useMobile();
   const handleMenuHover = (index) => {
     setActiveMenu(index);
-  };
-
-  const handleFormClick = () => {
-    setShowAdmissionForm(true);
   };
 
   const handleMenuLeave = () => {
@@ -225,9 +221,6 @@ const Navbar = () => {
           <FaPhone className="phone-icon" />
           ADMISSION HELPLINE NO. +91-9458311000
         </a>
-        <button onClick={handleFormClick} className="enquire">
-          Enquire Now
-        </button>
       </div>
       <nav className={`navbar-main-div-global scrolled`}>
         <Link href="https://tis.edu.in/" passHref>
@@ -273,10 +266,6 @@ const Navbar = () => {
       )}
       {isMobile && (
         <div className="bottom-bar-all-pages">
-          <button onClick={handleFormClick} className="bottom-enquire">
-            Enquire Now
-          </button>
-
           <div className="phone-div-bottom-bar">
             <a className="bottom-phone-number" href="tel:+91-9458311000">
               <FaPhone className="bottom-phone-icon" /> +91-9458311000
@@ -284,7 +273,6 @@ const Navbar = () => {
           </div>
         </div>
       )}
-      <Form showForm={showAdmissionForm} setShowForm={setShowAdmissionForm} />
     </div>
   );
 };
