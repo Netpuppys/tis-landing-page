@@ -268,7 +268,8 @@ const Navbar = () => {
         <div className="bottom-bar-all-pages">
           <div className="phone-div-bottom-bar">
             <a className="bottom-phone-number" href="tel:+91-9458311000">
-              <FaPhone className="bottom-phone-icon" /> +91-9458311000
+              <FaPhone className="bottom-phone-icon" /> ADMISSION HELPLINE NO.
+              +91-9458311000
             </a>
           </div>
         </div>

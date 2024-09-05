@@ -551,16 +551,8 @@
     height: 3rem;
     background-color: #b90124;
   }
-  .bottom-bar-all-pages .bottom-enquire {
-    background-color: transparent;
-    color: #fff;
-    border: none;
-    width: 50%;
-    font-size: 18px;
-    border-right: 2px solid #fff;
-  }
   .bottom-bar-all-pages .phone-div-bottom-bar {
-    width: 50%;
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
