@@ -11,14 +11,13 @@ import menuIcon from "../../public/menu-text.png";
 import menuCloseIcon from "../../public/menu-close-text.png";
 import NavMenu from "../navMenu/NavMenu";
 import { FaWhatsapp } from "react-icons/fa";
-
+import optionsIconClose from "../../public/Button-Close-Menu.png";
 import { FaPhone } from "react-icons/fa6";
 import { useMobile } from "../globalComponents/IsMobileContext";
 
 const Navbar = () => {
   const [activeMenu, setActiveMenu] = useState(null);
   const [isNavMenuVisible, setIsNavMenuVisible] = useState(false);
-
   const isMobile = useMobile();
   const handleMenuHover = (index) => {
     setActiveMenu(index);
@@ -31,6 +30,28 @@ const Navbar = () => {
   const handleMenuBtn = () => {
     setIsNavMenuVisible((prev) => !prev);
   };
+  useEffect(() => {
+    const loadScriptAndStyles = () => {
+      var t = document.createElement("script");
+      t.type = "text/javascript";
+      t.src =
+        "https://eeconfigstaticfiles.blob.core.windows.net/staticfiles/tisd/ee-form-widget/form-2/widget.js";
+      document.getElementsByTagName("head")[0].appendChild(t);
+    };
+
+    loadScriptAndStyles();
+  }, []);
+
+  useEffect(() => {
+    const s = document.createElement("script");
+    s.type = "text/javascript";
+    s.src =
+      "https://extraaedgeresources.blob.core.windows.net/documents/tisd/Chatbot/js/chat.js";
+    document.body.appendChild(s);
+    return () => {
+      document.body.removeChild(s);
+    };
+  }, []);
 
   const sitemap = [
     {
@@ -190,6 +211,10 @@ const Navbar = () => {
     },
   ];
 
+  const handleWhatsapp = () => {
+    window.open("https://api.whatsapp.com/send?phone=919458311000", "_blank");
+  };
+
   const renderNestedLinks = (nestedLinks) => (
     <div className="dropdown">
       {nestedLinks.map((nestedItem, nestedIndex) => (
@@ -217,9 +242,9 @@ const Navbar = () => {
   return (
     <div className="fixed z-20">
       <div className="top-bar">
-        <a className="phone-number" href="tel:+91-9458311000">
+        <a className="phone-number" href="tel:+918108012525">
           <FaPhone className="phone-icon" />
-          ADMISSION HELPLINE NO. +91-9458311000
+          ADMISSION HELPLINE NO. +91-8108012525
         </a>
       </div>
       <nav className={`navbar-main-div-global scrolled`}>
@@ -249,7 +274,11 @@ const Navbar = () => {
           ))}
         </div>
         <button className="options-btn" onClick={handleMenuBtn}>
-          <Image src={optionsIcon} className="options" alt="TIS" />
+          <Image
+            src={isNavMenuVisible ? optionsIconClose : optionsIcon}
+            className="options"
+            alt="TIS"
+          />
           <div className="menu-icon-div">
             <Image
               src={isNavMenuVisible ? menuCloseIcon : menuIcon}
@@ -264,12 +293,33 @@ const Navbar = () => {
           <NavMenu handleMenuBtn={handleMenuBtn} />
         </div>
       )}
+      <div
+        className="chat-btn"
+        onClick={handleWhatsapp}
+        style={{
+          borderRadius: "50%",
+          backgroundColor: "#25d366",
+          display: "flex",
+          textAlign: "center",
+          cursor: "pointer",
+        }}
+      >
+        <FaWhatsapp
+          style={{
+            color: "#fff",
+            alignSelf: "center",
+            margin: "auto",
+          }}
+        />
+      </div>
+      <div id="link"></div>
+
       {isMobile && (
         <div className="bottom-bar-all-pages">
           <div className="phone-div-bottom-bar">
-            <a className="bottom-phone-number" href="tel:+91-9458311000">
+            <a className="bottom-phone-number" href="tel:+91-8108012525">
               <FaPhone className="bottom-phone-icon" /> ADMISSION HELPLINE NO.
-              +91-9458311000
+              +91-8108012525
             </a>
           </div>
         </div>

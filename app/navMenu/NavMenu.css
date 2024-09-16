@@ -394,6 +394,7 @@
   .nav-menu-main-div .right-div .promo-div {
     overflow: visible;
     padding: 2rem 0;
+    padding-bottom: 4rem;
   }
 
   .nav-menu-main-div .promo-div .photo-grid {
@@ -406,7 +407,6 @@
     margin-inline: 1rem;
     height: 150px;
     width: 90%;
-
     overflow: hidden;
     border-radius: 0.5rem;
   }
