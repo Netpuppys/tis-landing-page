@@ -10,7 +10,7 @@ import stages from "../public/stages.png";
 import stagesMobile from "../public/stagesMobile.png";
 import { useMobile } from "./globalComponents/IsMobileContext";
 export default function Home() {
-  const isMobile = useMobile();
+  const { isMobile } = useMobile();
   useEffect(() => {
     const loadScriptAndStyles = () => {
       window.ee_form_widget_baseurl =
@@ -45,13 +45,8 @@ export default function Home() {
       <Navbar />
       <div className="w-full h-fit min-h-screen relative flex justify-center items-center z-10">
         <Image
-          className="hidden md:block w-full h-screen object-cover absolute z-0 top-0"
-          src={school}
-          alt=""
-        />
-        <Image
-          className="block md:hidden w-full h-screen object-cover absolute z-0 top-0"
-          src={schoolMobile}
+          className="w-full h-screen object-cover absolute z-0 top-0"
+          src={!isMobile ? school : schoolMobile}
           alt=""
         />
         <div className="w-[95%] mt-[80vh] md:mt-0 flex md:w-[30%] md:ml-[50%] z-10 flex-col justify-center items-center rounded-3xl max-w-[450px] px-4 bg-white shadow-2xl">
