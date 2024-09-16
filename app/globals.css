@@ -71,10 +71,10 @@ p {
   margin-block-end: 0rem;
 }
 @media (max-width: 768px) {
-  body::-webkit-scrollbar-thumb {
+  ::-webkit-scrollbar-thumb {
     display: none;
   }
-  body::-webkit-scrollbar {
+  ::-webkit-scrollbar {
     width: 0px;
     display: none;
   }
