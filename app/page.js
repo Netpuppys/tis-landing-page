@@ -11,35 +11,35 @@ import stagesMobile from "../public/stagesMobile.png";
 import { useMobile } from "./globalComponents/IsMobileContext";
 export default function Home() {
   const { isMobile } = useMobile();
-  useEffect(() => {
-    const loadScriptAndStyles = () => {
-      window.ee_form_widget_baseurl =
-        "https://eeconfigstaticfiles.blob.core.windows.net/staticfiles/ee-form-widget/";
+  // useEffect(() => {
+  //   const loadScriptAndStyles = () => {
+  //     window.ee_form_widget_baseurl =
+  //       "https://eeconfigstaticfiles.blob.core.windows.net/staticfiles/ee-form-widget/";
 
-      if (!document.getElementById("__formWidgetCss")) {
-        const linkElement = document.createElement("link");
-        linkElement.id = "__formWidgetCss";
-        linkElement.rel = "stylesheet";
-        linkElement.href =
-          window.ee_form_widget_baseurl + "css/stylesheet.min.css";
-        linkElement.type = "text/css";
-        document.getElementsByTagName("head")[0].appendChild(linkElement);
-      }
+  //     if (!document.getElementById("__formWidgetCss")) {
+  //       const linkElement = document.createElement("link");
+  //       linkElement.id = "__formWidgetCss";
+  //       linkElement.rel = "stylesheet";
+  //       linkElement.href =
+  //         window.ee_form_widget_baseurl + "css/stylesheet.min.css";
+  //       linkElement.type = "text/css";
+  //       document.getElementsByTagName("head")[0].appendChild(linkElement);
+  //     }
 
-      const scriptElement = document.createElement("script");
-      scriptElement.type = "text/javascript";
-      scriptElement.src =
-        window.ee_form_widget_baseurl + "js/eeFormWidget.min.js";
-      scriptElement.onload = async function () {
-        const _eeFormWidget = new eeFormWidget();
-        await _eeFormWidget.init("tisd", "form-1", "ee-form-1");
-      };
+  //     const scriptElement = document.createElement("script");
+  //     scriptElement.type = "text/javascript";
+  //     scriptElement.src =
+  //       window.ee_form_widget_baseurl + "js/eeFormWidget.min.js";
+  //     scriptElement.onload = async function () {
+  //       const _eeFormWidget = new eeFormWidget();
+  //       await _eeFormWidget.init("tisd", "form-1", "ee-form-1");
+  //     };
 
-      document.getElementsByTagName("head")[0].appendChild(scriptElement);
-    };
+  //     document.getElementsByTagName("head")[0].appendChild(scriptElement);
+  //   };
 
-    loadScriptAndStyles();
-  }, []);
+  //   loadScriptAndStyles();
+  // }, []);
   return (
     <>
       <Navbar />
