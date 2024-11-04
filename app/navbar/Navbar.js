@@ -242,9 +242,9 @@ const Navbar = () => {
   return (
     <div className="fixed z-20">
       <div className="top-bar">
-        <a className="phone-number" href="tel:+918108012525">
+        <a className="phone-number" href="tel:+919837983791">
           <FaPhone className="phone-icon" />
-          ADMISSION HELPLINE NO. +91-8108012525
+          ADMISSION HELPLINE NO. +91-9837983791
         </a>
       </div>
       <nav className={`navbar-main-div-global scrolled`}>
@@ -317,9 +317,9 @@ const Navbar = () => {
       {isMobile && (
         <div className="bottom-bar-all-pages">
           <div className="phone-div-bottom-bar">
-            <a className="bottom-phone-number" href="tel:+91-8108012525">
+            <a className="bottom-phone-number" href="tel:+91-9837983791">
               <FaPhone className="bottom-phone-icon" /> ADMISSION HELPLINE NO.
-              +91-8108012525
+              +91-9837983791
             </a>
           </div>
         </div>
