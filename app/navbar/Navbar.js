@@ -19,6 +19,7 @@ const Navbar = () => {
   const [activeMenu, setActiveMenu] = useState(null);
   const [isNavMenuVisible, setIsNavMenuVisible] = useState(false);
   const isMobile = useMobile();
+  
   const handleMenuHover = (index) => {
     setActiveMenu(index);
   };
@@ -30,6 +31,7 @@ const Navbar = () => {
   const handleMenuBtn = () => {
     setIsNavMenuVisible((prev) => !prev);
   };
+  
   useEffect(() => {
     const loadScriptAndStyles = () => {
       var t = document.createElement("script");
