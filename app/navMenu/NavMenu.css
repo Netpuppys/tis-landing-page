@@ -69,8 +69,7 @@
   align-items: center;
 
   font-size: 2.25rem;
-  font-family: Mirador;
-  font-style: italic;
+  font-family: Mirador800;
   line-height: 2.875rem;
   text-align: left;
   color: #262626;
@@ -312,7 +311,7 @@
 .nav-menu-main-div .left-div .nested-links-div .content .link-item {
   width: 100%;
   height: fit-content;
-  font-family: Mirador;
+  font-family: Mirador800;
   display: flex;
   flex-direction: column;
   text-align: left;

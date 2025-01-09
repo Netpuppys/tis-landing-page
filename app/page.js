@@ -55,7 +55,7 @@ export default function Home() {
       </div>
 
       <div className="w-full h-fit bg-white z-10">
-        <h3 className="font-[Mirador] text-[30px] md:text-[55px] text-[#000] leading-none text-center block py-12">
+        <h3 className="font-[Mirador800] text-[30px] md:text-[55px] text-[#000] leading-none text-center block py-12">
           Application <span className="text-[#b90124]">Stages</span>{" "}
           <Image
             src={yellowLine}

@@ -10,7 +10,7 @@ import optionsIcon from "../../public/Button-Open-Menu.png";
 import menuIcon from "../../public/menu-text.png";
 import menuCloseIcon from "../../public/menu-close-text.png";
 import NavMenu from "../navMenu/NavMenu";
-import { FaWhatsapp } from "react-icons/fa";
+import { FaWhatsapp, FaWindowRestore } from "react-icons/fa";
 import optionsIconClose from "../../public/Button-Close-Menu.png";
 import { FaPhone } from "react-icons/fa6";
 import { useMobile } from "../globalComponents/IsMobileContext";
@@ -248,9 +248,12 @@ const Navbar = () => {
         </a>
       </div>
       <nav className={`navbar-main-div-global scrolled`}>
-        <Link href="https://tis.edu.in/" passHref>
-          <Image src={schoolLogo} className="second-nav-logo" alt="school" />
-        </Link>
+        <Image
+          onClick={() => (window.location.href = `https://tis.edu.in/`)}
+          src={schoolLogo}
+          className="second-nav-logo"
+          alt="school"
+        />
 
         <div className="navbar-list-main">
           {sitemap.map((item, index) => (

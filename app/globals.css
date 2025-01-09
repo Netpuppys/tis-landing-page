@@ -34,6 +34,10 @@
   src: url(./fonts/Rene\ Bieder\ -\ Mirador\ Bold\ DEMO.otf);
 }
 @font-face {
+  font-family: "Mirador800";
+  src: url(./fonts/mirador-black-italic.otf);
+}
+@font-face {
   font-family: "TT Chocolates";
   src: url(./fonts/TT\ Chocolates\ Trial\ Regular.otf);
 }
