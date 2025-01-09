@@ -1,11 +1,12 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import Link from "next/link";
 import { IoAddSharp } from "react-icons/io5";
 import { FaLongArrowAltLeft } from "react-icons/fa";
 import "./MobileNestedLinkElements.css";
+import { UtmContext } from "@/app/globalComponents/utmParams";
 function MobileNestedLinkElements({ title, navlinks, setNestedLinksVisible }) {
   const [superNestedLinksVisible, setSuperNestedLinksVisible] = useState(false);
-
+  const { utmParams } = useContext(UtmContext);
   return (
     <div className="mobile-nested-links-div">
       <div className="content">
@@ -24,7 +25,7 @@ function MobileNestedLinkElements({ title, navlinks, setNestedLinksVisible }) {
                 className="link-item"
                 onClick={() => setSuperNestedLinksVisible((prev) => !prev)}
               >
-                <Link href={item.linkTo} className="links" passHref>
+                <Link href={`${item.linkTo}${utmParams}`} className="links">
                   {item.title}
                   {item.nestedLinks && item.nestedLinks.length > 0 && (
                     <IoAddSharp className="expand-icon" />
@@ -37,10 +38,9 @@ function MobileNestedLinkElements({ title, navlinks, setNestedLinksVisible }) {
                     <div className="nested-links-dropdown">
                       {item.nestedLinks.map((nestedItem, index) => (
                         <Link
-                          href={nestedItem.linkTo}
+                          href={`${nestedItem.linkTo}${utmParams}`}
                           key={index}
                           className="super-nested-link-item"
-                          passHref
                         >
                           -{nestedItem.title}
                         </Link>

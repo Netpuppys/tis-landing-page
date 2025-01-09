@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import lineImg from "../../public/yellowLine1.svg";
@@ -10,16 +10,18 @@ import optionsIcon from "../../public/Button-Open-Menu.png";
 import menuIcon from "../../public/menu-text.png";
 import menuCloseIcon from "../../public/menu-close-text.png";
 import NavMenu from "../navMenu/NavMenu";
-import { FaWhatsapp, FaWindowRestore } from "react-icons/fa";
+import { FaWhatsapp } from "react-icons/fa";
 import optionsIconClose from "../../public/Button-Close-Menu.png";
 import { FaPhone } from "react-icons/fa6";
 import { useMobile } from "../globalComponents/IsMobileContext";
+import { UtmContext } from "../globalComponents/utmParams";
 
 const Navbar = () => {
   const [activeMenu, setActiveMenu] = useState(null);
   const [isNavMenuVisible, setIsNavMenuVisible] = useState(false);
   const isMobile = useMobile();
-  
+  const { utmParams } = useContext(UtmContext);
+
   const handleMenuHover = (index) => {
     setActiveMenu(index);
   };
@@ -31,7 +33,7 @@ const Navbar = () => {
   const handleMenuBtn = () => {
     setIsNavMenuVisible((prev) => !prev);
   };
-  
+
   useEffect(() => {
     const loadScriptAndStyles = () => {
       var t = document.createElement("script");
@@ -146,7 +148,7 @@ const Navbar = () => {
           linkTo: "https://tis.edu.in/beyond-academics/sports/",
         },
         {
-          title: "Music & Dance",
+          title: "Beyond The Curriculum",
           linkTo: "https://tis.edu.in/beyond-academics/music",
         },
         {
@@ -170,10 +172,10 @@ const Navbar = () => {
           title: "Admission Procedure",
           linkTo: "https://tis.edu.in/admission-procedure/",
         },
-        {
-          title: "Registration Process",
-          linkTo: "https://tis.edu.in/admission-procedure/registration-form/",
-        },
+        // {
+        //   title: "Registration Process",
+        //   linkTo: "https://tis.edu.in/admission-procedure/registration-form/",
+        // },
         {
           title: "Pay Fee Online",
           linkTo: "https://pages.razorpay.com/pl_EehyEVeDo25wMd/view",
@@ -212,16 +214,18 @@ const Navbar = () => {
       ],
     },
   ];
-
   const handleWhatsapp = () => {
-    window.open("https://api.whatsapp.com/send?phone=919458311000", "_blank");
+    window.open("https://api.whatsapp.com/send?phone=919258159249", "_blank");
   };
 
   const renderNestedLinks = (nestedLinks) => (
     <div className="dropdown">
       {nestedLinks.map((nestedItem, nestedIndex) => (
         <div className="list-items" key={nestedIndex}>
-          <a href={nestedItem?.linkTo} style={{ color: "#fff" }} passHref>
+          <a
+            href={`${nestedItem.linkTo}${utmParams}`}
+            style={{ color: "#fff" }}
+          >
             <div className="title-arrow">
               <p className="nested-link-title">{nestedItem?.title}</p>
               {nestedItem?.nestedLinks?.length > 1 && (
@@ -251,7 +255,9 @@ const Navbar = () => {
       </div>
       <nav className={`navbar-main-div-global scrolled`}>
         <Image
-          onClick={() => (window.location.href = `https://tis.edu.in/`)}
+          onClick={() =>
+            (window.location.href = `https://tis.edu.in/${utmParams}`)
+          }
           src={schoolLogo}
           className="second-nav-logo"
           alt="school"
@@ -265,10 +271,9 @@ const Navbar = () => {
               onMouseEnter={() => handleMenuHover(index)}
               onMouseLeave={() => handleMenuLeave()}
             >
-              <a href={item.linkTo} passHref>
-                <p className="title">{item.title}</p>
-                <Image src={lineImg} className="yellow-line" alt="line" />
-              </a>
+              <p className="title">{item.title}</p>
+              <Image src={lineImg} className="yellow-line" alt="line" />
+
               <div className="dropdown-container">
                 {activeMenu === index &&
                   item.nestedLinks &&

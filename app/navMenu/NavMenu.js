@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import Link from "next/link"; // Correct import for Next.js Link component
 import { useMobile } from "../globalComponents/IsMobileContext";
 import firstcard from "../../public/header-admissions1.JPG";
@@ -12,9 +12,11 @@ import { FaLongArrowAltRight } from "react-icons/fa";
 import MobileNestedLinkElements from "./mobileNestedLinks/MobileNestedLinksElements";
 import "./NavMenu.css";
 import Image from "next/image";
+import { UtmContext } from "../globalComponents/utmParams";
 
 function NestedLinkElements({ navlinks, setNestedLinksVisible }) {
   const [superNestedLinksVisible, setSuperNestedLinksVisible] = useState(false);
+  const { utmParams } = useContext(UtmContext);
 
   return (
     <div className="nested-links-div">
@@ -32,7 +34,7 @@ function NestedLinkElements({ navlinks, setNestedLinksVisible }) {
                 className="link-item"
                 onClick={() => setSuperNestedLinksVisible((prev) => !prev)}
               >
-                <Link href={item.linkTo || "#"} className="links">
+                <Link href={`${item.linkTo}${utmParams}`} className="links">
                   {item.title}
                   {item.nestedLinks && item.nestedLinks.length > 0 && (
                     <IoAddSharp className="expand-icon" />
@@ -46,7 +48,7 @@ function NestedLinkElements({ navlinks, setNestedLinksVisible }) {
                       {item.nestedLinks.map((nestedItem, index) => (
                         <Link
                           key={index}
-                          href={nestedItem.linkTo || "#"}
+                          href={`${nestedItem.linkTo}${utmParams}`}
                           className="super-nested-link-item"
                         >
                           -{nestedItem.title}
@@ -68,6 +70,7 @@ function NavMenu({ handleMenuBtn }) {
   const [nestedLinksVisible, setNestedLinksVisible] = useState(false);
   const [activeLink, setActiveLink] = useState();
   const [rightDivOpacity, setRightDivOpacity] = useState(1);
+  const { utmParams } = useContext(UtmContext);
 
   useEffect(() => {
     if (nestedLinksVisible === true) {
@@ -173,7 +176,7 @@ function NavMenu({ handleMenuBtn }) {
           linkTo: "https://tis.edu.in/beyond-academics/sports/",
         },
         {
-          title: "Music & Dance",
+          title: "Beyond The Curriculum",
           linkTo: "https://tis.edu.in/beyond-academics/music",
         },
         {
@@ -197,10 +200,10 @@ function NavMenu({ handleMenuBtn }) {
           title: "Admission Procedure",
           linkTo: "https://tis.edu.in/admission-procedure/",
         },
-        {
-          title: "Registration Process",
-          linkTo: "https://tis.edu.in/admission-procedure/registration-form/",
-        },
+        // {
+        //   title: "Registration Process",
+        //   linkTo: "https://tis.edu.in/admission-procedure/registration-form/",
+        // },
         {
           title: "Pay Fee Online",
           linkTo: "https://pages.razorpay.com/pl_EehyEVeDo25wMd/view",
@@ -254,7 +257,7 @@ function NavMenu({ handleMenuBtn }) {
               <ul>
                 <li className="list-item-home">
                   <Link
-                    href="https://tis.edu.in/"
+                    href={`https://tis.edu.in/${utmParams}`}
                     onClick={handleMenuBtn}
                     className="list-item"
                   >

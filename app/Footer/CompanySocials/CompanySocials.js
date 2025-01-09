@@ -61,15 +61,14 @@ function CompanySocials() {
         <ul className="cmpny-socials-btns-list">
           {socials.map((item, id) => (
             <li className="cmpny-socials-btns-item" key={id}>
-              <Link
+              <a
                 href={item.link}
-                target="blank"
+                target="_blank"
                 className="cmpny-socials-btns-link"
-                passHref
                 // onClick={handleClick}
               >
                 {item.logo}
-              </Link>
+              </a>
             </li>
           ))}
         </ul>

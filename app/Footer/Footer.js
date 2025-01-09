@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect } from "react";
+import React, { useContext, useEffect } from "react";
 import { useMobile } from "../globalComponents/IsMobileContext";
 import FooterLinks from "./footerLinks/FooterLinks";
 import footerLogo from "../../public/footer-logo.png";
@@ -16,10 +16,10 @@ import "./Footer.css";
 import BottomBar from "./BottomBar";
 import Link from "next/link";
 import Image from "next/image";
-import Calendar from "../../public/TIS_CALENDAR_2024__PDF.pdf";
-import Broucher from "../../public/TIS_BROCHURE.pdf";
+import { UtmContext } from "../globalComponents/utmParams";
 
 function Footer() {
+  const { utmParams } = useContext(UtmContext);
   const { isMobile } = useMobile();
   useEffect(() => {
     const loadScriptAndStyles = () => {
@@ -106,17 +106,6 @@ function Footer() {
       icon: linkedinLogo,
     },
   ];
-  const handlefedena = () => {
-    window.location.href = "https://tis.fedena.com/";
-  };
-  const handleVirtual = () => {
-    window.location.href = "https://tis.edu.in/virtual-tour/";
-  };
-  const handleApply = () => {
-    window.location.href =
-      "https://tis.edu.in/admission-procedure/registration-form/";
-  };
-
   return (
     <div className="footer-container">
       {!isMobile && (
@@ -171,17 +160,26 @@ function Footer() {
             <FooterLinks linksData={ourCampusLinks} />
           </div>
           <div className="three-buttons">
-            <div onClick={handleVirtual} className="button">
+            <a
+              target="_blank"
+              href={`https://tis.edu.in/virtual-tour/`}
+              className="button"
+            >
               Virtual Tour
-            </div>
-
-            <div onClick={handleApply} className="button">
+            </a>
+            <a
+              href={`https://tis.edu.in/admission-procedure/${utmParams}`}
+              className="button"
+            >
               Apply Now
-            </div>
-
-            <div className="button" onClick={handlefedena}>
+            </a>
+            <a
+              target="_blank"
+              href="https://tis.fedena.com/"
+              className="button"
+            >
               fedena Login
-            </div>
+            </a>
           </div>
 
           <BottomBar />
@@ -191,7 +189,7 @@ function Footer() {
       {isMobile && (
         <>
           <div className="header">
-            <Link href="/">
+            <Link href={`/${utmParams}`}>
               <Image src={footerLogoMobile} className="logo" alt="TIS" />
             </Link>
             <div className="right">
@@ -218,14 +216,22 @@ function Footer() {
           <div className="all-links">
             <div className="mobile-links">
               {ourCampusLinks[0].links.map((item, index) => (
-                <a className="link" key={index} href={item.linkTo}>
+                <a
+                  className="link"
+                  key={index}
+                  href={`${item.linkTo}${utmParams}`}
+                >
                   <p className="links">{item.linkName}</p>
                 </a>
               ))}
             </div>
             <div className="social-links">
               {socialLinks.map((item, index) => (
-                <a className="link" key={index} href={item.linkTo}>
+                <a
+                  className="link"
+                  key={index}
+                  href={`${item.linkTo}${utmParams}`}
+                >
                   <Image src={item.icon} className="icon" alt={item.title} />
                   <p className="title">{item.title}</p>
                 </a>
