@@ -3,8 +3,8 @@ import React, { useEffect } from "react";
 import Image from "next/image";
 import Navbar from "./navbar/Navbar";
 import Footer from "./Footer/Footer";
-import school from "../public/school.webp";
-import schoolMobile from "../public/schoolMobile.webp";
+import school from "../public/tis-gurukul.png";
+import schoolMobile from "../public/tis-gurukul-md.png";
 import yellowLine from "../public/yellowLine.png";
 import stages from "../public/stages.png";
 import stagesMobile from "../public/stagesMobile.png";
@@ -43,13 +43,13 @@ export default function Home() {
   return (
     <>
       <Navbar />
-      <div className="w-full h-fit min-h-screen relative flex justify-center items-center z-10">
+      <div className="w-full h-fit relative flex flex-col items-center md:block z-10">
         <Image
-          className="w-full h-screen object-cover absolute z-0 top-0"
+          className="w-full h-auto object-contain relative z-0"
           src={!isMobile ? school : schoolMobile}
           alt=""
         />
-        <div className="w-[95%] mt-[80vh] md:mt-0 flex md:w-[30%] md:ml-[50%] z-10 flex-col justify-center items-center rounded-3xl max-w-[450px] px-4 bg-white shadow-2xl">
+        <div className="w-[95%] mt-4 md:mt-0 md:absolute md:top-1/2 md:-translate-y-1/2 md:right-[8%] flex md:w-[30%] z-10 flex-col justify-center items-center rounded-3xl max-w-[450px] px-4 bg-white shadow-2xl">
           <div id="ee-form-1"></div>
         </div>
       </div>
